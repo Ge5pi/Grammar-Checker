@@ -1,3 +1,4 @@
+import asyncio
 import logging
 import os
 import nest_asyncio
@@ -36,3 +37,7 @@ async def handle_message(message: Message):
 
 async def main():
     await dis.start_polling(bot)
+
+
+if __name__ == "__main__":
+    asyncio.run(main())
