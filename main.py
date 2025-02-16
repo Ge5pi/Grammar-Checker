@@ -27,7 +27,12 @@ async def handle_message(message: Message):
         model="gpt-4o",
         messages=[
             {"role": "user", "content": f"Hi! Check my text on grammar and punctuation mistakes: \"{message.text}\""},
-            {"role": "system", "content": "Answer with this template and only like this: \"Corrected words:\n\nRules you should read:\", If you did not find mistakes, say it."}
+            {"role": "system",
+             "content": "Answer with this template and only like this: \"Corrected words:\n\nRules you should read:\", If you did not find mistakes, say it."}
         ]
     )
     await message.answer(response.choices[0].message.content)
+
+
+async def main():
+    await dis.start_polling(bot)
